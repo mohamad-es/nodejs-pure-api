@@ -5,7 +5,7 @@ const { ProductController } = require("./controllers/product.controller");
 const server = app.createServer((req, res) => {
   if (req.url == "/api/products") {
     ProductController.list(req, res);
-  } else if (req.url == "/api/product/first") {
+  } else if (req.url.split("/")[3].match(/^[0-9]/)) {
     ProductController.find(req, res);
   } else {
     res.writeHead(404, { "content-type": "text/plain" });

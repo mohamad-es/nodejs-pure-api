@@ -1,8 +1,8 @@
 const products = require("../data.json");
 
-async function find() {
+async function find(id) {
   return new Promise((resolve, reject) => {
-    resolve(products);
+    resolve(products.products.find((item) => item.id == id));
   });
 }
 
